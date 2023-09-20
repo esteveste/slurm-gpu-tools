@@ -145,6 +145,9 @@ if __name__ == "__main__":
     # check every 5 minutes
     while True:
         print(f"Time: {datetime.datetime.now().strftime('%H:%M:%S')}")
-        check_slurm_gpu_processes()
+        try:
+            check_slurm_gpu_processes()
+        except Exception as e:
+            print(e)
         # time.sleep(5*60)
         time.sleep(5)
